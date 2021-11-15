@@ -10,17 +10,7 @@ Installing The Driver
     You need Steam and SteamVR installed to use our driver
 
 
-
-Linux
-^^^^^
-If your package manager supports dpkg, you can download our deb packages from `here <https://github.com/HoboVR-Labs/hobo_vr/releases>`_.
-
-If not you'll have to build and install our driver yourself, see `Building on Linux`_.
-
-
-Windows
-^^^^^^^
-You can download our installer from `here <https://github.com/HoboVR-Labs/hobo_vr/releases>`_.
+You can download our installers from `here <https://github.com/HoboVR-Labs/hobo_vr/releases>`_.
 
 
 Building Driver From Source
