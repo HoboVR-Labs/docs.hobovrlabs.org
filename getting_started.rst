@@ -1,7 +1,7 @@
 Getting Started
 ===============
 
-To get started with ``hobo_vr`` you need two things, our driver and a poser.
+To get started with ``hobo_vr`` you need two things: our driver and a poser.
 
 Installing The Driver
 ---------------------
@@ -13,14 +13,14 @@ Installing The Driver
 
 Linux
 ^^^^^
-If your package manager supports dpkg, you can download our deb packages from `here <https://github.com/HoboVR-Labs/hobo_vr/releases/tag/v0.6.6-stable>`_.
+If your package manager supports dpkg, you can download our deb packages from `here <https://github.com/HoboVR-Labs/hobo_vr/releases>`_.
 
 If not you'll have to build and install our driver yourself, see `Building on Linux`_.
 
 
 Windows
 ^^^^^^^
-You can download our installer from `here <https://github.com/HoboVR-Labs/hobo_vr/releases/tag/v0.6.6-stable>`_.
+You can download our installer from `here <https://github.com/HoboVR-Labs/hobo_vr/releases>`_.
 
 
 Building Driver From Source
@@ -31,9 +31,9 @@ Building Driver From Source
     We assume you are familiar with command line/terminal, and able to run basic commands.
 
 
-We use ``CMake`` to build our driver, so you'll need it installed (on Windows you'll need the command line version).
+We use ``CMake`` to build our driver, so you'll need it installed. (On Windows you'll need the command line version.)
 
-You will also need ``Git``, so make sure it's installed as well (on Windows you'll need the command line version).
+You will also need ``Git``, so make sure it's installed as well. (On Windows you'll need the command line version.)
 
 Now you need to clone our repository::
     
@@ -53,7 +53,7 @@ Building on Linux
 
     The ``-DINSTALL_X86_DRIVER=1`` argument is not optional for 32bit builds, if it is not added you risk installing a 32bit driver into a 64bit target!
 
-You'll need to compile our driver twice, once 32bit and once 64bit, with the ``Unix Makefiles`` generator you can use the following commands to generate the build files::
+You'll need to compile our driver twice, once 32bit and once 64bit. With the ``Unix Makefiles`` generator you can use the following commands to generate the build files::
 
     cmake . -DCMAKE_CXX_FLAGS=-m32 -DCMAKE_C_FLAGS=-m32 -B "build32" -DINSTALL_X86_DRIVER=1
     cmake . -DCMAKE_CXX_FLAGS=-m64 -DCMAKE_C_FLAGS=-m64 -B "build64"
@@ -80,7 +80,7 @@ Building on Windows
 
 To build on windows you'll need Visual Studio with C++ desktop development package installed.
 
-You'll need to compile our driver twice, once 32bit and once 64bit, with the ``Visual Studio 16 2019`` generator you can use to following commands to generate the build files::
+You'll need to compile our driver twice, once 32bit and once 64bit. With the ``Visual Studio 16 2019`` generator you can use to following commands to generate the build files::
     
     cmake -G "Visual Studio 16 2019" -A Win32 . -B "build32" -DINSTALL_X86_DRIVER=1
     cmake -G "Visual Studio 16 2019" -A x64 . -B "build64"
@@ -108,7 +108,7 @@ Installing Your Build
 To install your build of the ``hobo_vr`` driver, you need to do a few things.
 
 
-First and foremost locate ``<your SteamVR install directory>/bin/<your platform>/vrpathreg``, its a binary file tool that will allow you to register your driver build, further we'll refer to it as ``vrpathreg``
+First and foremost locate ``<your SteamVR install directory>/bin/<your platform>/vrpathreg``. It's a binary file tool that will allow you to register your driver build. We'll refer to it as ``vrpathreg`` from now on.
 
 Now you need to make sure a different version of our driver is not installed, you can do that by running this ``vrpathreg`` command::
 
@@ -118,7 +118,7 @@ Now you need to make sure a different version of our driver is not installed, yo
     
     If you are on Linux and get this error: ``error while loading shared libraries: libopenvr_api.so: cannot open shared object file: No such file or directory``, see `SteamVR Linux issue#478 <https://github.com/ValveSoftware/SteamVR-for-Linux/issues/478>`_.
 
-And checking the paths in the ``External Drivers:`` section, if any the paths end with ``hobovr`` (used by our installers) you need to run this ``vrpathreg`` command::
+Checking the paths in the ``External Drivers:`` section, if any the paths end with ``hobovr`` (used by our installers) you need to run this ``vrpathreg`` command::
 
     vrpathreg removedriver <path to the other versions of hobo_vr>
 
@@ -126,7 +126,7 @@ Now you can install your build by running yet another ``vrpathreg`` command::
 
     vrpathreg adddriver <path to your built driver directory>
 
-Congratulations, you installed you very own build of the ``hobo_vr`` driver!
+Congratulations, you installed your very own build of the ``hobo_vr`` driver!
 
 
 What Is a Poser?
@@ -139,7 +139,7 @@ Examples
 
 You can find poser examples for Python and C++ on `our GitHub repository <https://github.com/HoboVR-Labs/hobo_vr/tree/master/bindings>`_.
 
-But here is a the simplest example for Python:
+But here is a simple example for Python:
 
 .. code-block:: python
     
@@ -266,11 +266,11 @@ But here is a the simplest example for Python:
 How It Works
 ^^^^^^^^^^^^
 
-For a process to be acknowledged as a poser by our driver, it needs to bind and listen  on ``tcp://127.0.0.1:6969``, and then accept 2 sockets. The two sockets will ID themselves with ``"hello\n"`` and ``"monky\n"`` as the first message sent after establishing a connection.
+For a process to be acknowledged as a poser by our driver, it needs to bind and listen  on ``tcp://127.0.0.1:6969``, and then accept 2 sockets. The two sockets will identify themselves with ``"hello\n"`` and ``"monky\n"`` as the first message sent after establishing a connection.
 
-The socket that sent ``"monky\n"`` is used as a general driver control channel, we call it the manager channel though, this socket allows to change the device live list, change some device settings, etc. See `Manager Protocol`_.
+The socket that sent ``"monky\n"`` is used as a general driver control channel, we call it the manager channel though. This socket allows for changing the device live list, changing some device settings, etc. See `Manager Protocol`_.
 
-The socket that sent ``"hello\n"`` is used as a device control channel, we call it tracking channel though, this socket is meant for control of the live device list, mostly tracking though. See `Tracking Protocol`_.
+The socket that sent ``"hello\n"`` is used as a device control channel, we call it tracking channel though. This socket is meant for controlling the live device list, mostly through tracking. See `Tracking Protocol`_.
 
 
 
@@ -395,7 +395,7 @@ The tracking protocol is, unfortunately, not as simple as the manager protocol. 
     #pragma pack(pop)
 
 
-Now this message struct can be using the tracking socket. However if the device list changes and the message struct is not changed accordingly the driver will ignore messages coming from this socket, *the poser will not be notified about that*.
+Now this message struct can be using the tracking socket. However if the device list changes and the message struct is not changed accordingly the driver will ignore messages coming from this socket. *The poser will not be notified about that*.
 
 The rule for constructing tracking message structs is, for each device in the device list(conserving the order) you choose one of the structs:
 
