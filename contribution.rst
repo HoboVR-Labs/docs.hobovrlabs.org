@@ -4,17 +4,17 @@ Contributing
 You can contribute code, documentation, issues, examples, etc. If you want to contribute something, feel free to message someone. Otherwise, please follow the code or documentation contribution guidelines.
 
 How to Contribute Code
-======================
+^^^^^^^^^^^^^^^^^^^^^^
 
 Create your own fork of the repository, modify the code, check that it passes all tests, commit to git while following the commit message guidelines, and then submit a pull request. The pull request should either relate to an issue or should describe why the code changes should be added. Or if you prefer sending patches over email, feel free to send them to the appropriate maintainers.
 
 How to Contribute to the Docs
-=============================
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Please submit a pull request to our github repository at docs.hobovrlabs.org. Or if you prefer sending patches over email, feel free to send them to the appropriate maintainers.
 
 Commit Message Guidelines
-=========================
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 1) Sign your commits, either by adding a `-s` to your commit command for git to do it for you, or by hand
 2) Add the path to the affected file/location separated by ':  ' in the commit title before the actual commit title
