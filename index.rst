@@ -17,6 +17,14 @@ Overview
    contribution.rst
 
 
+Unofficial OpenVR Driver API Documentation
+==========================================
+
+.. toctree::
+   :maxdepth: 2
+
+   openvr/introduction.rst
+
 
 
 Indices and tables
