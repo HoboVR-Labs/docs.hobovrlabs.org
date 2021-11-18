@@ -1,4 +1,4 @@
-An Introduction To Drivers
+An Introduction to Drivers
 ==========================
 
 SteamVR uses dynamic libraries to load drivers, and as it turns out, all that a dynamic library needs to do to be recognized as a driver, is export *a single function* ``void* HmdDriverFactory(const char *pInterfaceName, int *pReturnCode)``... *And* have a nice driver directory and be built for both 32 and 64 bit instructions.
