@@ -9,7 +9,7 @@ SteamVR uses dynamic libraries to load drivers, and as it turns out, all that a 
 Driver Directory
 ^^^^^^^^^^^^^^^^
 
-Driver directories have only 1 mandatory component, a ``driver.vrdrivermanifest`` file, which describes how the contents of the driver directory will be used. See `Driver Manifest File`_.
+Driver directories have only 1 mandatory component: a ``driver.vrdrivermanifest`` file, which describes how the contents of the driver directory will be used. See `Driver Manifest File`_.
 
 Everything else is technically optional, but you won't have a driver otherwise so yeah.
 
@@ -63,7 +63,7 @@ If your driver directory is "resource only", your driver will only have a single
 
     6 directories, 2 files
 
-However if your driver directory is indented for an actual driver, you'll need to add sub-directory ``bin``. ``bin`` stores the compiled driver, however SteamVR expects you to put architecture specific versions of your compiled driver into platform specific sub-directories. Resources are still allowed, and function exactly as they do in the "resource only" case. Here is a few examples of resource only driver directories(pulled from SteamVR):
+However if your driver directory is indented for an actual driver, you'll need to add sub-directory ``bin``. ``bin`` stores the compiled driver, however SteamVR expects you to put architecture specific versions of your compiled driver into platform specific sub-directories. Resources are still allowed, and function exactly as they do in the "resource only" case. Here are a few examples of resource only driver directories(pulled from SteamVR):
 
 .. code-block:: bash
 
@@ -146,7 +146,7 @@ However if your driver directory is indented for an actual driver, you'll need t
 Driver Manifest File
 ^^^^^^^^^^^^^^^^^^^^^
 
-This file determines how the driver be recognized by SteamVR, it needs to be placed in the root of your driver directory and have this name: ``driver.vrdrivermanifest``.
+This file determines how the driver will be recognized by SteamVR. It needs to be placed in the root of your driver directory and have this name: ``driver.vrdrivermanifest``.
 
 The contents of this file need to look like this:
 
