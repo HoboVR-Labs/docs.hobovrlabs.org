@@ -44,7 +44,7 @@ Terms and Conditions
 
 By contributing you agree that:
 
-* The information you added is publicly available(and is not part of any confidential document).
+* The information you added is publicly available (and is not part of any confidential document).
 
 * The information you added was obtained legally.
 
