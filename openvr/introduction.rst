@@ -348,7 +348,7 @@ WIP
 
     Writer's note: Ok, i'm gonna be straight with you, this is not mentioned anywhere, we have nothing! Take everything here with a massive grain of salt, figuring out how it works is like piecing together a log out of saw dust.
 
-    You are more than welcomed to update our documentation, if you see something inaccurate. See :ref:`contrib-section`.
+    You are more than welcome to update our documentation, if you see something inaccurate. See :ref:`contrib-section`.
 
 
 Render Models
