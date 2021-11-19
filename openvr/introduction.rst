@@ -182,13 +182,6 @@ And here is what it does:
 Driver Resources
 ^^^^^^^^^^^^^^^^
 
-.. note::
-
-    Writer's note: Ok, i'm gonna be straight with you, this is not mentioned anywhere, we have nothing! Take everything here with a massive grain of salt, figuring out how it works is like piecing together a log out of saw dust.
-
-    You are more then welcomed to update our documentation, if you see something inaccurate. See :ref:`contrib-section`.
-
-
 Status Icons
 ------------
 
@@ -294,9 +287,9 @@ Lets start with the ``Prop`` things. The full list of acceptable keys can be fou
 
     // *other enum members*
 
-The convenient code comments also explain the gifs and pngs situation.
+The convenient code comments, which also explain the gif and png situation.
 
-Now onto the ``{sample}`` and ``{driver}`` from prop comments. Which has to do with path resolution, you see SteamVR allows you register your driver from anywhere, you can use ``{name of a driver}`` in the begging of paths, it will then be replaced with the path to that driver + ``/resources``. See `Driver Relative Paths`_.
+Now onto the ``{sample}`` and ``{driver}`` from prop comments. Which has to do with path resolution. You see SteamVR allows you register your driver from anywhere, you can use ``{name of a driver}`` in the beginning of paths, it will then be replaced with the path to that driver + ``/resources``. See `Driver Relative Paths`_.
 
 Last thing about icons that you need to know is that you can have variants of icons without changing any of the resource configs. You can do that by a ``@2x`` suffix before the extension to the variant icon names to add a 2 times higher res icon, adding a ``.b4bfb144`` suffix to the variant icon will make it the default variant on Windows, and you can also combine them, but ``@2x`` needs to be the first suffix. For good measure here is an example(pulled from SteamVR):
 
@@ -344,7 +337,34 @@ Last thing about icons that you need to know is that you can have variants of ic
 Input Profiles
 --------------
 
+WIP
 
+Localization
+------------
+
+WIP
+
+.. note::
+
+    Writer's note: Ok, i'm gonna be straight with you, this is not mentioned anywhere, we have nothing! Take everything here with a massive grain of salt, figuring out how it works is like piecing together a log out of saw dust.
+
+    You are more than welcomed to update our documentation, if you see something inaccurate. See :ref:`contrib-section`.
+
+
+Render Models
+-------------
+
+WIP
+
+Firmware
+--------
+
+WIP
+
+Animations
+----------
+
+WIP
 
 
 
