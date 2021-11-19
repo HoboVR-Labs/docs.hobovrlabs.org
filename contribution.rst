@@ -3,7 +3,7 @@
 Contributing
 ============
 
-You can contribute code, documentation, issues, examples, etc. If you want to contribute something, feel free to message someone. Otherwise, please follow the code or documentation contribution guidelines.
+You can contribute code, documentation, issues, examples, etc. If you want to contribute something, feel free to message someone. Otherwise, please follow the code or documentation contribution guidelines. Also see `Terms and Conditions`_.
 
 How to Contribute Code
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -38,3 +38,24 @@ A good commit message should look like this:
   "git log" will show things nicely even when it's indented.
 
   Signed-off-by: Your Name <youremail@yourhost.com>
+
+Terms and Conditions
+^^^^^^^^^^^^^^^^^^^^
+
+By contributing you agree that:
+
+* The information you added is publicly available(and is not part of any confidential document).
+
+* The information you added was obtained legally.
+
+* The information you added is factually accurate.
+
+
+License
+^^^^^^^
+
+By contributing you agree to `Terms and Conditions`_.
+
+By uploading a photo, video, or a media file of a different type, you agree to share them under one of the `Creative Commons Licenses <https://creativecommons.org/licenses/>`_.
+
+All trademarks are property of their respective owners.
