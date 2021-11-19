@@ -181,3 +181,124 @@ And here is what it does:
 
 Driver Resources
 ^^^^^^^^^^^^^^^^
+
+.. note::
+
+    Writer's note: Ok, i'm gonna be straight with you, this is not mentioned anywhere, we have nothing! Take everything here with a massive grain of salt, figuring out how it works is like piecing together a log out of saw dust.
+
+    You are more then welcomed to update our documentation, if you see something inaccurate. See :ref:`contrib-section`.
+
+
+Status Icons
+------------
+
+First lets talk about something easy and nice, device status icons. If you ever bothered to read the code comments in the official `driver sample <https://github.com/ValveSoftware/openvr/blob/master/samples/driver_sample/driver_sample.cpp#L208>`_, you'd find a rather interesting section that mentions how to configure device status icons outside of driver code using a ``driver.vrresources`` file.
+
+.. code-block:: c
+
+    // Icons can be configured in code or automatically configured by an external file "drivername\resources\driver.vrresources".
+    // Icon properties NOT configured in code (post Activate) are then auto-configured by the optional presence of a driver's "drivername\resources\driver.vrresources".
+    // In this manner a driver can configure their icons in a flexible data driven fashion by using an external file.
+    //
+    // The structure of the driver.vrresources file allows a driver to specialize their icons based on their HW.
+    // Keys matching the value in "Prop_ModelNumber_String" are considered first, since the driver may have model specific icons.
+    // An absence of a matching "Prop_ModelNumber_String" then considers the ETrackedDeviceClass ("HMD", "Controller", "GenericTracker", "TrackingReference")
+    // since the driver may have specialized icons based on those device class names.
+    //
+    // An absence of either then falls back to the "system.vrresources" where generic device class icons are then supplied.
+    //
+    // Please refer to "bin\drivers\sample\resources\driver.vrresources" which contains this sample configuration.
+    //
+    // "Alias" is a reserved key and specifies chaining to another json block.
+    //
+    // In this sample configuration file (overly complex FOR EXAMPLE PURPOSES ONLY)....
+    //
+    // "Model-v2.0" chains through the alias to "Model-v1.0" which chains through the alias to "Model-v Defaults".
+    //
+    // Keys NOT found in "Model-v2.0" would then chase through the "Alias" to be resolved in "Model-v1.0" and either resolve their or continue through the alias.
+    // Thus "Prop_NamedIconPathDeviceAlertLow_String" in each model's block represent a specialization specific for that "model".
+    // Keys in "Model-v Defaults" are an example of mapping to the same states, and here all map to "Prop_NamedIconPathDeviceOff_String".
+
+
+An all around good explanation, until you look in ``driver.vrresources`` that is provided with the sample driver...
+
+.. code-block:: json
+
+    {
+        "jsonid" : "vrresources",
+        "statusicons" : {
+            "HMD" : {
+                "Prop_NamedIconPathDeviceOff_String" : "{sample}/icons/headset_sample_status_off.png",
+                "Prop_NamedIconPathDeviceSearching_String" : "{sample}/icons/headset_sample_status_searching.gif",
+                "Prop_NamedIconPathDeviceSearchingAlert_String" : "{sample}/icons/headset_sample_status_searching_alert.gif",
+                "Prop_NamedIconPathDeviceReady_String" : "{sample}/icons/headset_sample_status_ready.png",
+                "Prop_NamedIconPathDeviceReadyAlert_String" : "{sample}/icons/headset_sample_status_ready_alert.png",
+                "Prop_NamedIconPathDeviceNotReady_String" : "{sample}/icons/headset_sample_status_error.png",
+                "Prop_NamedIconPathDeviceStandby_String" : "{sample}/icons/headset_sample_status_standby.png",
+                "Prop_NamedIconPathDeviceAlertLow_String" : "{sample}/icons/headset_sample_status_ready_low.png"
+            },
+
+            "Model-v Defaults" : {
+                "Prop_NamedIconPathDeviceOff_String" : "{sample}/icons/headset_sample_status_off.png",
+                "Prop_NamedIconPathDeviceSearching_String" : "Prop_NamedIconPathDeviceOff_String",
+                "Prop_NamedIconPathDeviceSearchingAlert_String" : "Prop_NamedIconPathDeviceOff_String",
+                "Prop_NamedIconPathDeviceReady_String" : "Prop_NamedIconPathDeviceOff_String",
+                "Prop_NamedIconPathDeviceReadyAlert_String" : "Prop_NamedIconPathDeviceOff_String",
+                "Prop_NamedIconPathDeviceNotReady_String" : "Prop_NamedIconPathDeviceOff_String",
+                "Prop_NamedIconPathDeviceStandby_String" : "Prop_NamedIconPathDeviceOff_String",
+                "Prop_NamedIconPathDeviceAlertLow_String" : "Prop_NamedIconPathDeviceOff_String"
+            },
+
+            "Model-v1.0" : {
+                "Alias" : "Model-v Defaults",
+                "Prop_NamedIconPathDeviceAlertLow_String" : "{sample}/icons/headset_model1_alertlow.png"
+            },
+
+            "Model-v2.0" : {
+                "Alias" : "Model-v1.0",
+                "Prop_NamedIconPathDeviceAlertLow_String" : "{sample}/icons/headset_model2_alertlow.png"
+            },
+
+            "Controller" : {
+                "Prop_NamedIconPathDeviceOff_String" : "{sample}/icons/controller_status_off.png",
+                "Prop_NamedIconPathDeviceSearching_String" : "{sample}/icons/controller_status_searching.gif",
+                "Prop_NamedIconPathDeviceSearchingAlert_String" : "{sample}/icons/controller_status_searching_alert.gif",
+                "Prop_NamedIconPathDeviceReady_String" : "{sample}/icons/controller_status_ready.png",
+                "Prop_NamedIconPathDeviceReadyAlert_String" : "{sample}/icons/controller_status_ready_alert.png",
+                "Prop_NamedIconPathDeviceNotReady_String" : "{sample}/icons/controller_status_error.png",
+                "Prop_NamedIconPathDeviceStandby_String" : "{sample}/icons/controller_status_standby.png",
+                "Prop_NamedIconPathDeviceAlertLow_String" : "{sample}/icons/controller_status_ready_low.png"
+            }
+        }
+    }
+
+What are these ``Prop`` things? What does ``{sample}`` mean? Why are some icons gifs and others pngs?
+
+Lets start with the ``Prop`` things. The full list of acceptable keys can be found in `openvr_driver.h <https://github.com/ValveSoftware/openvr/blob/master/headers/openvr_driver.h#L524>`_ in the ``ETrackedDeviceProperty`` enum:
+
+.. code-block:: c
+
+    // *other enum members*
+
+    // Properties that are used for user interface like icons names
+    Prop_IconPathName_String                        = 5000, // DEPRECATED. Value not referenced. Now expected to be part of icon path properties.
+    Prop_NamedIconPathDeviceOff_String              = 5001, // {driver}/icons/icon_filename - PNG for static icon, or GIF for animation, 50x32px for headsets and 32x32px for others
+    Prop_NamedIconPathDeviceSearching_String        = 5002, // {driver}/icons/icon_filename - PNG for static icon, or GIF for animation, 50x32px for headsets and 32x32px for others
+    Prop_NamedIconPathDeviceSearchingAlert_String   = 5003, // {driver}/icons/icon_filename - PNG for static icon, or GIF for animation, 50x32px for headsets and 32x32px for others
+    Prop_NamedIconPathDeviceReady_String            = 5004, // {driver}/icons/icon_filename - PNG for static icon, or GIF for animation, 50x32px for headsets and 32x32px for others
+    Prop_NamedIconPathDeviceReadyAlert_String       = 5005, // {driver}/icons/icon_filename - PNG for static icon, or GIF for animation, 50x32px for headsets and 32x32px for others
+    Prop_NamedIconPathDeviceNotReady_String         = 5006, // {driver}/icons/icon_filename - PNG for static icon, or GIF for animation, 50x32px for headsets and 32x32px for others
+    Prop_NamedIconPathDeviceStandby_String          = 5007, // {driver}/icons/icon_filename - PNG for static icon, or GIF for animation, 50x32px for headsets and 32x32px for others
+    Prop_NamedIconPathDeviceAlertLow_String         = 5008, // {driver}/icons/icon_filename - PNG for static icon, or GIF for animation, 50x32px for headsets and 32x32px for others
+    Prop_NamedIconPathDeviceStandbyAlert_String     = 5009, // {driver}/icons/icon_filename - PNG for static icon, or GIF for animation, 50x32px for headsets and 32x32px for others
+
+    // *other enum members*
+
+The convenient code comments also explain the gifs and pngs situation.
+
+Now onto the ``{sample}`` and ``{driver}`` from prop comments. Which has to do with path resolution, you see SteamVR allows you register your driver from anywhere, you can use ``{name of a driver}`` in the begging of paths, it will then be replaced with the path to that driver + ``/resources``. See `Driver Relative Paths`_.
+
+Driver Relative Paths
+^^^^^^^^^^^^^^^^^^^^^
+
+After you register a driver SteamVR will interpret ``{name of your driver}`` as ``/path/to/your/driver/resources``, only works when paths are processed by OpenVR/SteamVR tools. Example: When setting icons for devices(either for status icons or bindings), to use icons shipped with your driver, you can use ``{name of your driver}/icons/icon_name.png``.
