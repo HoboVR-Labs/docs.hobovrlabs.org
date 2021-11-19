@@ -58,7 +58,7 @@ Now you can run these commands to move the built binaries into the driver folder
     cmake --install build32
     cmake --install build64
 
-See `Openvr Driver Folders <#>`_.
+See :ref:`opevr-driver-directories`.
 
 
 Building on Windows
@@ -119,7 +119,7 @@ Now you can install your build by running yet another ``vrpathreg`` command::
 Congratulations, you installed your very own build of the ``hobo_vr`` driver!
 
 
-What Is a Poser?
+What Is a Poser
 ----------------
 
 A poser is what we call a process that controls our driver. On its own our driver will not do anything, hell it won't even start if a poser process is not running.

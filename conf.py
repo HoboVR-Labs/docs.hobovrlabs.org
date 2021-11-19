@@ -21,7 +21,7 @@
 
 project = 'HoboVR Labs'
 copyright = '2021, The HoboVR Labs Team'
-author = 'Oleg Vorobiov'
+author = 'HoboVR Labs Team'
 
 # The short X.Y version
 version = '0.6.6'
@@ -76,6 +76,10 @@ pygments_style = None
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
+
+html_logo = "resources/hobovr-logo.png"
+html_favicon = "resources/favicon.ico"
+
 html_theme = 'sphinx_rtd_theme'
 
 # Theme options are theme-specific and customize the look and feel of a theme
@@ -87,7 +91,7 @@ html_theme = 'sphinx_rtd_theme'
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
+html_static_path = ['resources']
 
 # Custom sidebar templates, must be a dictionary that maps document names
 # to template names.
@@ -181,3 +185,7 @@ epub_exclude_files = ['search.html']
 
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = True
+
+
+def setup(app):
+    app.add_css_file("css/dark.css")
