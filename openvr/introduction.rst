@@ -298,7 +298,57 @@ The convenient code comments also explain the gifs and pngs situation.
 
 Now onto the ``{sample}`` and ``{driver}`` from prop comments. Which has to do with path resolution, you see SteamVR allows you register your driver from anywhere, you can use ``{name of a driver}`` in the begging of paths, it will then be replaced with the path to that driver + ``/resources``. See `Driver Relative Paths`_.
 
+Last thing about icons that you need to know is that you can have variants of icons without changing any of the resource configs. You can do that by a ``@2x`` suffix before the extension to the variant icon names to add a 2 times higher res icon, adding a ``.b4bfb144`` suffix to the variant icon will make it the default variant on Windows, and you can also combine them, but ``@2x`` needs to be the first suffix. For good measure here is an example(pulled from SteamVR):
+
+.. code-block:: bash
+
+    tree -L 2 indexhmd/resources/icons/
+    indexhmd/resources/icons/
+    ├── headset_status_error@2x.b4bfb144.png
+    ├── headset_status_error@2x.png
+    ├── headset_status_error.b4bfb144.png
+    ├── headset_status_error.png
+    ├── headset_status_off@2x.6e6c89c9.png
+    ├── headset_status_off@2x.png
+    ├── headset_status_off.6e6c89c9.png
+    ├── headset_status_off.png
+    ├── headset_status_ready@2x.b4bfb144.png
+    ├── headset_status_ready@2x.png
+    ├── headset_status_ready_alert@2x.b4bfb144.png
+    ├── headset_status_ready_alert@2x.png
+    ├── headset_status_ready_alert.b4bfb144.png
+    ├── headset_status_ready_alert.png
+    ├── headset_status_ready.b4bfb144.png
+    ├── headset_status_ready.png
+    ├── headset_status_searching@2x.b4bfb144.gif
+    ├── headset_status_searching@2x.gif
+    ├── headset_status_searching_alert@2x.b4bfb144.gif
+    ├── headset_status_searching_alert@2x.gif
+    ├── headset_status_searching_alert.b4bfb144.gif
+    ├── headset_status_searching_alert.gif
+    ├── headset_status_searching.b4bfb144.gif
+    ├── headset_status_searching.gif
+    ├── headset_status_standby@2x.b4bfb144.png
+    ├── headset_status_standby@2x.png
+    ├── headset_status_standby_alert@2x.b4bfb144.png
+    ├── headset_status_standby_alert@2x.png
+    ├── headset_status_standby_alert.b4bfb144.png
+    ├── headset_status_standby_alert.png
+    ├── headset_status_standby.b4bfb144.png
+    ├── headset_status_standby.png
+    └── indexhmd.svg
+
+    0 directories, 33 files
+
+
+Input Profiles
+--------------
+
+
+
+
+
 Driver Relative Paths
 ^^^^^^^^^^^^^^^^^^^^^
 
-After you register a driver SteamVR will interpret ``{name of your driver}`` as ``/path/to/your/driver/resources``, only works when paths are processed by OpenVR/SteamVR tools. Example: When setting icons for devices(either for status icons or bindings), to use icons shipped with your driver, you can use ``{name of your driver}/icons/icon_name.png``.
+After you register a driver SteamVR will interpret ``{name of your driver}`` as ``/path/to/your/driver/resources``, only works when paths are processed by OpenVR/SteamVR tools. Example: When setting icons for devices(either for status icons, bindings, models or other resources), to use icons shipped with your driver, you can use ``{name of your driver}/icons/icon_name.png``.
