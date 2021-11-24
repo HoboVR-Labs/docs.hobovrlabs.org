@@ -13,7 +13,7 @@ Create your own fork of the repository, modify the code, check that it passes al
 How to Contribute to the Docs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Please submit a pull request to our github repository at docs.hobovrlabs.org. Or if you prefer sending patches over email, feel free to send them to the appropriate maintainers.
+Please submit a pull request to our github repository at `docs.hobovrlabs.org <https://github.com/HoboVR-Labs/docs.hobovrlabs.org>`_. Or if you prefer sending patches over email, feel free to send them to the appropriate maintainers.
 
 Commit Message Guidelines
 ^^^^^^^^^^^^^^^^^^^^^^^^^
