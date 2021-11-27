@@ -354,18 +354,21 @@ WIP
 Render Models
 -------------
 
-WIP
+Obj models with a hint of json hate (WIP)
 
 Firmware
 --------
 
-WIP
+Its not in any examples, it is mentioned a lot in the ``openvr_driver.h`` header though. You might be able to use the "automatic™ SteamVR™ firmware™ updater™ tool™ thingymajig™®©℠℗" using the combination of ``VREvent_FirmwareUpdateStarted`` and ``VREvent_FirmwareUpdateFinished`` events together with ``EVRFirmwareError`` enum, firmware related props and files in ``{driver name}/firmware/``. We don't really now the specific on how to use the "automatic™ SteamVR™ firmware™ updater™ tool™ thingymajig™®©℠℗". What we do know is how to trigger the manual firmware update notification for the user which will redirect the user to a url from ``Prop_Firmware_ManualUpdateURL_String``. Well how do you do that then? Simple just set ``Prop_Firmware_UpdateAvailable_Bool`` and ``Prop_Firmware_ManualUpdate_Bool`` to true using the ``VRProperties`` interface. See `VRProperties Interface`_.
 
 Animations
 ----------
 
-WIP
+I got nothing for you yet again x)
 
+The only thing i know about it, is that Index and Oculus controller drivers use them. Animations can be found in ``{driver name}/anims/``. Why are they there? What are they used for? How do *you* use it in *your* driver? And the answers to those are: No idea. No clue. And i wish i knew.
+
+This is not mentioned in any examples, hell there is no mention of the word ``anim`` in ``openvr_driver.h``. As far as i can tell it's not mentioned anywhere, if you have *any* info about it, it would help a lot if you could update this section. See :ref:`contrib-section`.
 
 
 Driver Relative Paths
