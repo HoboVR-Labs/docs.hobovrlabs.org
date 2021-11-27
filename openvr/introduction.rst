@@ -375,3 +375,22 @@ Driver Relative Paths
 ^^^^^^^^^^^^^^^^^^^^^
 
 After you register a driver SteamVR will interpret ``{name of your driver}`` as ``/path/to/your/driver/resources``, only works when paths are processed by OpenVR/SteamVR tools. Example: When setting icons for devices(either for status icons, bindings, models or other resources), to use icons shipped with your driver, you can use ``{name of your driver}/icons/icon_name.png``.
+
+Surface Level Driver ABI
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+To be a functional driver you need to compile your source into a DLL or a Shared Object (depending on which platform you use).
+
+HMD Driver Factory
+------------------
+
+Your driver needs to export only a single symbol which is a function that with the following signature: ``void* HmdDriverFactory(const char *pInterfaceName, int *outReturnCode)``
+
+How does it work? Dead simple actually, ``pInterfaceName`` is a null terminated string with the name of the interface SteamVR runtime requests from your driver, if your driver implements the requested interface, return a raw pointer to it, if it does not match any of the interfaces implemented by your driver set ``*outReturnCode`` to ``VRInitError_Init_InterfaceNotFound`` and return ``NULL``.
+
+Why? Interfaces implemented in your driver get to SteamVR runtime through this function.
+
+Driver Interfaces
+-----------------
+
+Honestly this topic is too big to be in the general surface level introduction to driver ABI, so it's been moved to it's own page :ref:`driver-interfaces`.
