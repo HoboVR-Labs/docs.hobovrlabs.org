@@ -1,7 +1,7 @@
 An Introduction to Drivers
 ==========================
 
-SteamVR uses dynamic libraries to load drivers, and as it turns out, all that a dynamic library needs to do to be recognized as a driver, is export *a single function* ``void* HmdDriverFactory(const char *pInterfaceName, int *pReturnCode)``... *And* have a nice driver directory and be built for both 32 and 64 bit instructions.
+SteamVR uses dynamic libraries to load drivers, and as it turns out, all that a dynamic library needs to do to be recognized as a driver, is export *a single function* ``void* HmdDriverFactory(const char *pInterfaceName, int *pReturnCode)``... *And* have a nice driver directory and be built for both 32 and 64 bit instructions *AND* use very specific interfaces in the driver ABI... In short, its a mess. But it doesn't have to be, hopefully this page helps with that.
 
 
 .. _opevr-driver-directories:
@@ -337,7 +337,7 @@ Last thing about icons that you need to know is that you can have variants of ic
 Input Profiles
 --------------
 
-WIP
+Json with a lot of hate (WIP)
 
 Localization
 ------------
