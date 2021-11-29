@@ -24,6 +24,7 @@ Unofficial OpenVR Driver API Documentation
    :maxdepth: 2
 
    openvr/introduction.rst
+   openvr/driver-resources.rst
 
 
 

@@ -1,7 +1,7 @@
 An Introduction to Drivers
 ==========================
 
-SteamVR uses dynamic libraries to load drivers, and as it turns out, all that a dynamic library needs to do to be recognized as a driver, is export *a single function* ``void* HmdDriverFactory(const char *pInterfaceName, int *pReturnCode)``... *And* have a nice driver directory and be built for both 32 and 64 bit instructions.
+SteamVR uses dynamic libraries to load drivers, and as it turns out, all that a dynamic library needs to do to be recognized as a driver, is export *a single function* ``void* HmdDriverFactory(const char *pInterfaceName, int *pReturnCode)``... *And* have a nice driver directory and be built for both 32 and 64 bit instructions *AND* use very specific interfaces in the driver ABI... In short, its a mess. But it doesn't have to be, hopefully this page helps with that.
 
 
 .. _opevr-driver-directories:
@@ -337,7 +337,7 @@ Last thing about icons that you need to know is that you can have variants of ic
 Input Profiles
 --------------
 
-WIP
+Json with a lot of hate (WIP)
 
 Localization
 ------------
@@ -354,21 +354,43 @@ WIP
 Render Models
 -------------
 
-WIP
+Obj models with a hint of json hate (WIP)
 
 Firmware
 --------
 
-WIP
+Its not in any examples, it is mentioned a lot in the ``openvr_driver.h`` header though. You might be able to use the "automatic™ SteamVR™ firmware™ updater™ tool™ thingymajig™®©℠℗" using the combination of ``VREvent_FirmwareUpdateStarted`` and ``VREvent_FirmwareUpdateFinished`` events together with ``EVRFirmwareError`` enum, firmware related props and files in ``{driver name}/firmware/``. We don't really now the specific on how to use the "automatic™ SteamVR™ firmware™ updater™ tool™ thingymajig™®©℠℗". What we do know is how to trigger the manual firmware update notification for the user which will redirect the user to a url from ``Prop_Firmware_ManualUpdateURL_String``. Well how do you do that then? Simple just set ``Prop_Firmware_UpdateAvailable_Bool`` and ``Prop_Firmware_ManualUpdate_Bool`` to true using the ``VRProperties`` interface. See `VRProperties Interface`_.
 
 Animations
 ----------
 
-WIP
+I got nothing for you yet again x)
 
+The only thing I know about it, is that Index and Oculus controller drivers use them. Animations can be found in ``{driver name}/anims/``. Why are they there? What are they used for? How do *you* use it in *your* driver? And the answers to those are: No idea. No clue. And I wish I knew.
+
+This is not mentioned in any examples, hell there is no mention of the word ``anim`` in ``openvr_driver.h``. As far as i can tell it's not mentioned anywhere, if you have *any* info about it, it would help a lot if you could update this section. See :ref:`contrib-section`.
 
 
 Driver Relative Paths
 ^^^^^^^^^^^^^^^^^^^^^
 
 After you register a driver SteamVR will interpret ``{name of your driver}`` as ``/path/to/your/driver/resources``, only works when paths are processed by OpenVR/SteamVR tools. Example: When setting icons for devices(either for status icons, bindings, models or other resources), to use icons shipped with your driver, you can use ``{name of your driver}/icons/icon_name.png``.
+
+Surface Level Driver ABI
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+To be a functional driver you need to compile your source into a DLL or a Shared Object (depending on which platform you use).
+
+HMD Driver Factory
+------------------
+
+Your driver needs to export only a single symbol which is a function that with the following signature: ``void* HmdDriverFactory(const char *pInterfaceName, int *outReturnCode)``
+
+How does it work? Dead simple actually, ``pInterfaceName`` is a null terminated string with the name of the interface SteamVR runtime requests from your driver, if your driver implements the requested interface, return a raw pointer to it, if it does not match any of the interfaces implemented by your driver set ``*outReturnCode`` to ``VRInitError_Init_InterfaceNotFound`` and return ``NULL``.
+
+Why? Interfaces implemented in your driver get to SteamVR runtime through this function.
+
+Driver Interfaces
+-----------------
+
+Honestly this topic is too big to be in the general surface level introduction to driver ABI, so it's been moved to it's own page :ref:`driver-interfaces`.

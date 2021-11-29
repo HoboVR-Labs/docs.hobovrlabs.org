@@ -5,6 +5,8 @@ Contributing
 
 You can contribute code, documentation, issues, examples, etc. If you want to contribute something, feel free to message someone. Otherwise, please follow the code or documentation contribution guidelines. Also see `Terms and Conditions`_.
 
+If you any other questions feel free to contact us at `team@hobovrlabs.org <mailto:team@hobovrlabs.org>`_.
+
 How to Contribute Code
 ^^^^^^^^^^^^^^^^^^^^^^
 
@@ -13,7 +15,9 @@ Create your own fork of the repository, modify the code, check that it passes al
 How to Contribute to the Docs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Please submit a pull request to our github repository at `docs.hobovrlabs.org <https://github.com/HoboVR-Labs/docs.hobovrlabs.org>`_. Or if you prefer sending patches over email, feel free to send them to the appropriate maintainers.
+We use `reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html>`_ format in our docs, feel free to add changes.
+
+You can submit said changes by submitting a pull request to our GitHub repository at `docs.hobovrlabs.org <https://github.com/HoboVR-Labs/docs.hobovrlabs.org>`_. Or if you prefer sending patches over email, feel free to send them to the appropriate maintainers.
 
 Commit Message Guidelines
 ^^^^^^^^^^^^^^^^^^^^^^^^^
