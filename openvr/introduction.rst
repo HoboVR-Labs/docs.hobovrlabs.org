@@ -366,7 +366,7 @@ Animations
 
 I got nothing for you yet again x)
 
-The only thing i know about it, is that Index and Oculus controller drivers use them. Animations can be found in ``{driver name}/anims/``. Why are they there? What are they used for? How do *you* use it in *your* driver? And the answers to those are: No idea. No clue. And i wish i knew.
+The only thing I know about it, is that Index and Oculus controller drivers use them. Animations can be found in ``{driver name}/anims/``. Why are they there? What are they used for? How do *you* use it in *your* driver? And the answers to those are: No idea. No clue. And I wish I knew.
 
 This is not mentioned in any examples, hell there is no mention of the word ``anim`` in ``openvr_driver.h``. As far as i can tell it's not mentioned anywhere, if you have *any* info about it, it would help a lot if you could update this section. See :ref:`contrib-section`.
 
