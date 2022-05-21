@@ -19,6 +19,6 @@ The rest of OpenVR documents can be found in `openvr/`.
 
 ### Building
 ```
-pip install sphinx sphinx-rtd-theme sphinx-reredirects
+pip install sphinx sphinx-rtd-theme sphinx-reredirects sphinxext-opengraph
 make html
 ```

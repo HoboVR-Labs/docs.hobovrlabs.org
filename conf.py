@@ -42,6 +42,7 @@ extensions = [
     'sphinx.ext.todo',
     'sphinx.ext.mathjax',
     'sphinx_reredirects',
+    "sphinxext.opengraph",
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -137,6 +138,11 @@ redirects = {
     "html/openvr/driver-interfaces.html":   "/openvr/driver-docs/interfaces/",
     "html/openvr/introduction.html":        "/openvr/docs/introduction/",
 }
+
+# -- Options for opengraph extension -----------------------------------------
+
+ogp_site_url = "https://docs.hobovrlabs.org/"
+ogp_image = "https://www.hobovrlabs.org/img/hobovr-logo.png"
 
 
 def setup(app):
