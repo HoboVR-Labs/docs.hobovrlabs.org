@@ -1,0 +1,35 @@
+name: github-pages
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Installing Dependencies
+        run: sudo apt install python3-sphinx python3-sphinx-rtd-theme
+
+      - name: Build docs
+        # -W turns warnings into errors
+        run: |
+          sphinx-build -b dirhtml -W "." "_build"
+
+      - name: Deploy
+        # https://github.com/peaceiris/actions-gh-pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          external_repository: HoboVR-Labs/hobovrlabs.org
+          # TODO: change to main to actually deploy
+          publish_branch: main
+          publish_dir: ./_build/
+          destination_dir: ./docs/
+          # https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-enable-built-in-jekyll-enable_jekyll
+          # Skip creating .nojekyll in root(!) dir, we don't use jekyll or dirs
+          # starting with underscores anyway
+          enable_jekyll: true
