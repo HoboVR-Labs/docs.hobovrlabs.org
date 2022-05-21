@@ -104,6 +104,12 @@ html_static_path = ['resources']
 #
 # html_sidebars = {}
 
+html_context = {
+  'display_github': True,
+  'github_user': 'HoboVR-Labs',
+  'github_repo': 'docs.hobovrlabs.org',
+  'github_version': 'master/',
+}
 
 # -- Options for HTMLHelp output ---------------------------------------------
 
