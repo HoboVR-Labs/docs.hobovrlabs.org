@@ -141,6 +141,7 @@ redirects = {
 
 # -- Options for opengraph extension -----------------------------------------
 
+ogp_site_name = "HoboVR Labs Docs"
 ogp_site_url = "https://docs.hobovrlabs.org/"
 ogp_image = "https://www.hobovrlabs.org/img/hobovr-logo.png"
 
