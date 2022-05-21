@@ -16,3 +16,9 @@ We'll be happy to review your commits!
 When adding a new document put it in `openvr/`, and add it to the index in `index.rst`.
 
 The rest of OpenVR documents can be found in `openvr/`.
+
+### Building
+```
+pip install sphinx sphinx-rtd-theme sphinx-reredirects
+make html
+```
