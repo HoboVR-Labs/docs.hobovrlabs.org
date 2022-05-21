@@ -41,6 +41,7 @@ release = '0.6.6-stable'
 extensions = [
     'sphinx.ext.todo',
     'sphinx.ext.mathjax',
+    'sphinx_reredirects',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -185,6 +186,17 @@ epub_exclude_files = ['search.html']
 
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = True
+
+# -- Options for reredirects extension ---------------------------------------
+redirects = {
+    "html/contribution.html":               "/docs/contribution/",
+    "html/genindex.html":                   "/docs/genindex/",
+    "html/getting_started.html":            "/docs/getting_started/",
+    "html/index.html":                      "/docs/index/",
+    "html/search.html":                     "/docs/search/",
+    "html/openvr/driver-interfaces.html":   "/openvr/driver-docs/interfaces/",
+    "html/openvr/introduction.html":        "/openvr/docs/introduction/",
+}
 
 
 def setup(app):
