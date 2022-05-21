@@ -125,6 +125,10 @@ todo_include_todos = True
 
 # -- Options for reredirects extension ---------------------------------------
 redirects = {
+    # Somehow, index.rst generates /docs/index/ links instead of plain /docs/
+    # (for opengraph)
+    "index/index.html":                     "/docs/",
+    # Old /docs/html redirects, should not change anymore
     "html/index.html":                      "/docs/",
     "html/contribution.html":               "/docs/contribution/",
     "html/genindex.html":                   "/docs/genindex/",
