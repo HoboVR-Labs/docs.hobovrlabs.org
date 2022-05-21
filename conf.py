@@ -125,10 +125,10 @@ todo_include_todos = True
 
 # -- Options for reredirects extension ---------------------------------------
 redirects = {
+    "html/index.html":                      "/docs/",
     "html/contribution.html":               "/docs/contribution/",
     "html/genindex.html":                   "/docs/genindex/",
     "html/getting_started.html":            "/docs/getting_started/",
-    "html/index.html":                      "/docs/index/",
     "html/search.html":                     "/docs/search/",
     "html/openvr/driver-interfaces.html":   "/openvr/driver-docs/interfaces/",
     "html/openvr/introduction.html":        "/openvr/docs/introduction/",
