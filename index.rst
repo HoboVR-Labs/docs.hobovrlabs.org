@@ -25,11 +25,3 @@ Unofficial OpenVR Driver API Documentation
 
    openvr/introduction.rst
    openvr/driver-interfaces.rst
-
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`search`
