@@ -1,3 +1,21 @@
+/* Temporary banner */
+#help-provide-humanitarian-aid-to-ukraine {
+    background: #ff0070;
+    color: white;
+    border-radius: 5px;
+    padding: 4% 4% 1%;
+    margin: 0 0 1%;
+}
+#help-provide-humanitarian-aid-to-ukraine a {
+    text-decoration: underline;
+    color: white;
+}
+#help-provide-humanitarian-aid-to-ukraine h1 {
+    font-style: italic;
+    font-weight: 400;
+    font-size: 150%;
+}
+
 @media (prefers-color-scheme: dark) {
     html {
         background-color: #181a1b !important;

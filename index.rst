@@ -6,6 +6,12 @@
 HoboVR Labs documentation!
 ==========================
 
+Help Provide Humanitarian Aid to Ukraine
+========================================
+
+.. toctree::
+
+   🇺🇦 Help Ukraine  🇺🇦 <https://hobovrlabs.org/ukraine.html>
 
 Overview
 =========
