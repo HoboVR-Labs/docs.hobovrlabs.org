@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Create faux requirements.txt file for caching sphinx pip pkg
-        run: echo -e "sphinx\nsphinx-reredirects" > sphinx-requirements.txt
+        run: echo -e "sphinx\nsphinx-rtd-theme\nsphinx-reredirects" > sphinx-requirements.txt
 
       - name: Set up Python
         uses: actions/setup-python@v2
