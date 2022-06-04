@@ -20,6 +20,7 @@ Overview
    :maxdepth: 2
 
    getting_started.rst
+   hobovr_dev_stuff.rst
    contribution.rst
 
 
