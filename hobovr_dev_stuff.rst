@@ -1,7 +1,7 @@
 Miscellaneous Development Docs for HoboVR
 =========================================
 
-I found myself in need to explain the same thing way too many times, so here is a collection of some of those things in a single document, so that hopefully I won't have to explain the same thing again...
+Here is a collection of some of the things I found myself re-explaining a lot. Hopefully this will clear things up enough going forward.
 
 Installing Dev Versions of Our Driver
 -------------------------------------
@@ -64,7 +64,7 @@ This is mostly aimed at addressing common faults with our dev driver register sc
 
 Generally there are 3 steps to this
 
-	1) Check that the path and name match with what your expects using the ``<vrpathreg> show`` command
+	1) Check that the path and name match with what you expect using the ``<vrpathreg> show`` command
 	2) Make sure there are no null entries, for more info see `OpenVR Issue 1653 <https://github.com/ValveSoftware/openvr/issues/1653>`_
 	3) If the previous two steps passed but SteamVR is still not loading your driver it's time to look at the logs, SteamVR will log the load status of all registered driver paths, including load errors. See :ref:`steamvr-logs`.
 
@@ -79,7 +79,7 @@ The process itself is split into two parts
 
 	1) Remove it from the external driver registry
 
-	2) Deleting all driver files
+	2) Delete all driver files
 
 .. note::
 
