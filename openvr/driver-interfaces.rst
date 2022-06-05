@@ -20,7 +20,7 @@ IVRSettings Interface
 Current version: ``IVRSettings_003``
 
 Allows the user to fetch, write (and also remove keys or entire sections) the last overridden value of a specific key from a specific section.
-The values can be overridden by any ``*.vrsettings`` file (which is picked up by either SteamVR, like ``<steam install path>/configs/steamvr.vrsettings``) with a matching section & key pair.
+The values can be overridden by any ``*.vrsettings`` file (which is picked up by either SteamVR, like ``<steam install path>/configs/steamvr.vrsettings`` or your driver using the ``Prop_AdditionalDeviceSettingsPath_String`` prop) with a matching section & key pair.
 
 Example usage:
 
