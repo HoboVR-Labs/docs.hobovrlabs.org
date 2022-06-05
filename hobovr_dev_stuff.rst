@@ -209,7 +209,7 @@ Your go to commands for driver development are ``adddriver``, ``removedriver`` a
 
 Now, the rest of the commands are useful only for messing with SteamVR itself, i don't recommend you ever try this, but here is a short description of what these commands do:
 
-``setruntime <path>`` sets the SteamVR runtime path, i.e. SteamVR install path
+``setruntime <path>`` sets the SteamVR runtime path, by default it's ``<steam install path>/steamapps/common/SteamVR``
 
 
 ``setconfig <path>`` sets the SteamVR's config path, by default it's ``<steam install path>/config``
