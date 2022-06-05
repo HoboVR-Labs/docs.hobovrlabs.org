@@ -8,7 +8,9 @@ Installing Dev Versions of Our Driver
 
 Download the latest driver artifact for your platform from the CI run you want to use.
 
-Unpack it somewhere in your system and register the unpacked folder as an external driver with SteamVR, see :ref:`driver-reg`.
+Unpack it somewhere in your system and register the unpacked folder as an external driver with SteamVR, either by using the ``register_driver`` script included with the driver or doing it by hand. See :ref:`driver-reg`.
+
+Also I strongly recommend you read the ``README.md`` file included with the driver.
 
 After that's done you need to verify that it's registered name is matching ``hobovr`` and registered path is matching the path of the folder you unpacked, this can be done with ``<vrpathreg> show``.
 
